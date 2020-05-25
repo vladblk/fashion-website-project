@@ -3,10 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="./style.css">
-  <title>Website Project</title>
+  <title>Travel Website</title>
 </head>
 <body>
+
+  <!-- START OF HEADER -->
+  <header class="nav-header">
+    <h1>
+      <a href="./index.html" id="nav-header__logo">days.</a>
+    </h1>
+
+    <div class="nav-header__burger-menu">
+      <div class="nav-header__burger-menu--line1"></div>
+      <div class="nav-header__burger-menu--line2"></div>
+    </div>
+  </header>
+  <!-- END OF HEADER -->
+
+  <!-- START OF MAIN -->
+  <main class="main-container">
+    <!-- START OF MOUNTAIN SECTION -->
+    <section class="main-container__mountain-slide">
+      <div class="main-container__mountain-slide-img">
+        <img src="./img/mountain.png" alt="mountain image">
+        <div class="reveal-img"></div>
+      </div>
+
+      <div class="main-container__mountain-slide-desc">
+        <div class="main-container__mountain-slide-desc--title">
+          <h2>Freedom at your <span class="main-container__mountain-slide-desc--title-span">fingertips.</span></h2>
+          <div class="main-container__mountain-slide-desc--title-swipe main-container__mountain-slide-desc--title-swipe1"></div>
+        </div>
+
+        <div class="main-container__mountain-slide-desc--text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti qui quo molestias, commodi voluptas inventore ipsum quas ad dolore eius!</p>
+        </div>
+
+        <a href="" class="main-container__mountain-slide-desc--btn btn"></a>
+
+        <div class="reveal-text"></div>
+      </div>
+    </section>
+    <!-- END OF MOUNTAIN SECTION -->
+
+    <!-- START OF HIKE SECTION -->
+    <section class="main-container__hike-slide">
+      <div class="main-container__hike-slide-img">
+        <img src="./img/hike.png" alt="hike image">
+        <div class="reveal-img"></div>
+      </div>
+
+      <div class="main-container__hike-slide-desc">
+        <div class="main-container__hike-slide-desc--title">
+          <h2>Freedom at your <span class="main-container__hike-slide-desc--title-span">fingertips.</span></h2>
+          <div class="main-container__hike-slide-desc--title-swipe main-container__hike-slide-desc--title-swipe1"></div>
+        </div>
+
+        <div class="main-container__hike-slide-desc--text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti qui quo molestias, commodi voluptas inventore ipsum quas ad dolore eius!</p>
+        </div>
+
+        <a href="" class="main-container__hike-slide-desc--btn btn"></a>
+
+        <div class="reveal-text"></div>
+      </div>
+    </section>
+    <!-- END OF HIKE SECTION -->
+
+    <!-- START OF FASHION SECTION -->
+    <section class="main-container__fashion-slide">
+      <div class="main-container__fashion-slide-img">
+        <img src="./img/fashion.png" alt="fashion image">
+        <div class="reveal-img"></div>
+      </div>
+
+      <div class="main-container__fashion-slide-desc">
+        <div class="main-container__fashion-slide-desc--title">
+          <h2>Freedom at your <span class="main-container__fashion-slide-desc--title-span">fingertips.</span></h2>
+          <div class="main-container__fashion-slide-desc--title-swipe main-container__fashion-slide-desc--title-swipe1"></div>
+        </div>
+
+        <div class="main-container__fashion-slide-desc--text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti qui quo molestias, commodi voluptas inventore ipsum quas ad dolore eius!</p>
+        </div>
+
+        <a href="" class="main-container__fashion-slide-desc--btn btn"></a>
+
+        <div class="reveal-text"></div>
+      </div>
+    </section>
+    <!-- END OF FASHION SECTION -->
+  </main>
+
+  <!-- NAV CONTAINER on buger button toggle -->
+  <nav class="nav-container">
+    <ul class="nav-container__links">
+      <li>Twitter</li>
+      <li>Youtube</li>
+      <li>Instagram</li>
+    </ul>
+
+    <div class="nav-container__contact">
+      <h2>Stay in touch.</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque maxime explicabo officiis consequuntur a ex repudiandae, quo vel animi quaerat?</p>
+    </div>
+  </nav>
+  <!-- END OF NAV CONTAINER -->
+
+  <!-- CURSOR -->
+  <div class="cursor">
+    <span class="cursor-text"></span>
+  </div>
+
+  <!-- LOADING SWIPE DIVS -->
+  <div class="loading-swipe loading-swipe-1"></div>
+  <div class="loading-swipe loading-swipe-2"></div>
+  <div class="loading-swipe loading-swipe-3"></div>
+
   <script src="./app.js"></script>
 </body>
 </html>
