@@ -1,4 +1,45 @@
 :root {
-  --font-family__abril: 'Abril Fatface', cursive;
-  --font-family__montserrat: 'Montserrat', sans-serif;
+  --font-family-main: 'Montserrat', sans-serif;
+  --font-family-second: 'Abril Fatface', cursive;
+
+  --background-color: #17181a;
+  --text-color-white: #fff;
+
+  --mountain-slide-span: rgb(86, 124, 228);
+  --hike-slide-span: rgb(167, 110, 231);
+  --fashion-slide-span: rgb(255, 139, 93);
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; // 10px/16px = 0.625 => 62.5%
+}
+
+body {
+  font-family: var(--font-family-main);
+  background-color: var(--background-color);
+
+  position: relative;
+}
+
+.reveal-img, .reveal-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+}
+
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
 }

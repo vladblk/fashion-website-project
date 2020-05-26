@@ -1,0 +1,61 @@
+.main-container {
+  width: 80%;
+  margin: 0 auto;
+  color: var(--text-color-white);
+  
+  
+  &__mountain-slide, &__hike-slide, &__fashion-slide {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-img {
+      position: relative;
+    }
+
+    &-desc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      padding-left: 5rem;
+
+      position: relative;
+
+      &--title {
+        font-family: var(--font-family-second);
+        font-size: 5rem;
+      }
+
+      &--text {
+        font-size: 1.5rem;
+        padding: 5rem 0rem;
+      }
+
+      &--btn {
+        background: none;
+        border: none;
+        color: var(--text-color-white);
+        font-size: 1.5rem;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border: 1px solid var(--text-color-white);
+        align-self: flex-start;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__mountain-slide-desc--title-span {
+    color: var(--mountain-slide-span);
+  }
+  &__hike-slide-desc--title-span {
+    color: var(--hike-slide-span);
+  }
+  &__fashion-slide-desc--title-span {
+    color: var(--fashion-slide-span);
+  }
+}
