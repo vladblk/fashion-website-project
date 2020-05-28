@@ -22,6 +22,7 @@ html {
 body {
   font-family: var(--font-family-main);
   background-color: var(--background-color);
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -59,9 +60,10 @@ body {
           justify-content: space-between;
 }
 
-.nav-header__logo {
+.nav-header__logo, .nav-header__logo:link, .nav-header__logo:visited {
   color: var(--text-color-white);
   font-family: var(--font-family-second);
+  text-decoration: none;
 }
 
 .nav-header__burger-menu {
@@ -97,6 +99,7 @@ body {
 
 .main-container__mountain-slide-img, .main-container__hike-slide-img, .main-container__fashion-slide-img {
   position: relative;
+  overflow: hidden;
 }
 
 .main-container__mountain-slide-desc, .main-container__hike-slide-desc, .main-container__fashion-slide-desc {

@@ -24,6 +24,8 @@ body {
   font-family: var(--font-family-main);
   background-color: var(--background-color);
 
+  overflow-x: hidden;
+
   position: relative;
 }
 

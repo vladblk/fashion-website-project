@@ -9,9 +9,10 @@
   align-items: center;
   justify-content: space-between;
 
-  &__logo {
+  &__logo, &__logo:link, &__logo:visited {
     color: var(--text-color-white);
     font-family: var(--font-family-second);
+    text-decoration: none;
   }
 
   &__burger-menu {
