@@ -36,11 +36,44 @@ body {
 }
 
 .cursor {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
+  -webkit-transform: translate(-39%, -25%);
+          transform: translate(-39%, -25%);
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transition-property: background, -webkit-transform;
+  transition-property: background, -webkit-transform;
+  transition-property: background, transform;
+  transition-property: background, transform, -webkit-transform;
+  -webkit-transform-origin: 95% 75%;
+          transform-origin: 95% 75%;
+  pointer-events: none;
+}
+
+.cursor-nav-active {
+  background-color: #567ce4;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.cursor-explore-active {
+  background-color: white;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 0.7rem;
 }
 
 .scrollmagic-pin-spacer {
@@ -99,6 +132,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background-color: var(--background-color);
 }
 
 .main-container__mountain-slide-img, .main-container__hike-slide-img, .main-container__fashion-slide-img {
@@ -130,6 +164,8 @@ body {
 .main-container__mountain-slide-desc--title, .main-container__hike-slide-desc--title, .main-container__fashion-slide-desc--title {
   font-family: var(--font-family-second);
   font-size: 5rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .main-container__mountain-slide-desc--text, .main-container__hike-slide-desc--text, .main-container__fashion-slide-desc--text {
@@ -160,6 +196,29 @@ body {
 
 .main-container__fashion-slide-desc--title-span {
   color: var(--fashion-slide-span);
+}
+
+.title-swipe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: darken;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.title-swipe-1 {
+  background: var(--mountain-slide-span);
+}
+
+.title-swipe-2 {
+  background: var(--hike-slide-span);
+}
+
+.title-swipe-3 {
+  background: var(--fashion-slide-span);
 }
 
 .nav-container {

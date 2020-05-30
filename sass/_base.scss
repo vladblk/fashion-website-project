@@ -39,12 +39,36 @@ body {
 }
 
 .cursor {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
+  transform: translate(-39%, -25%);
+
+  transition: all .5s ease-in-out;
+  transition-property: background, transform;
+  transform-origin: 95% 75%;
+
+  pointer-events: none;
+
+  &-nav-active {
+    background-color: rgb(86, 124, 228);
+    transform: scale(2);
+  }
+
+  &-explore-active {
+    background-color: white;
+    transform: scale(2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+  }
 }
+
+
 
 .scrollmagic-pin-spacer {
   position: static !important;
