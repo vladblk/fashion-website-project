@@ -69,4 +69,36 @@ function animateSlides(){
   });
 };
 
+const cursor = document.querySelector('.cursor');
+const cursorText = cursor.querySelector('.cursor-text');
+
+function cursorAnimation(e){
+  cursor.style.top = `${e.pageY}px`;
+  cursor.style.left = `${e.pageX}px`;
+};
+
+function hoverAnimation(e){
+  const item = e.target;
+  console.log(item);
+
+  if(item.classList.contains('nav-header__logo') || item.classList.contains('nav-header__burger-menu')){
+    cursor.classList.add('cursor-nav-active');
+  } else {
+    cursor.classList.remove('cursor-nav-active');
+  }
+
+  if(item.classList.contains('btn')){
+    cursor.classList.add('cursor-explore-active');
+    cursorText.innerText = 'Tap';
+    gsap.to('.title-swipe', 1, {y: '0%'});
+  } else {
+    cursor.classList.remove('cursor-explore-active');
+    cursorText.innerText = '';
+    gsap.to('.title-swipe', 1, {y: '100%'});
+  }
+}
+
+window.addEventListener('mousemove', cursorAnimation);
+window.addEventListener('mouseover', hoverAnimation);
+
 animateSlides();
