@@ -31,10 +31,10 @@ body {
 
 .reveal-img, .reveal-text {
   position: absolute;
-  top: 0;
+  top: -15%;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 150%;
   background-color: var(--background-color);
 }
 
@@ -44,4 +44,8 @@ body {
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
+}
+
+.scrollmagic-pin-spacer {
+  position: static !important;
 }
