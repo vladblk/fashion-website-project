@@ -1,0 +1,60 @@
+.main-container {
+
+  &__fashion-1, &__fashion-2, &__fashion-3 {
+    min-height: 90vh;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5rem;
+
+    position: relative;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &-text {
+      flex: 1;
+      flex-basis: 25rem;
+
+      h1 {
+        font-size: 8rem;
+        padding: 5rem 0rem;
+      }
+
+      p {
+        font-size: 2rem;
+        padding: 2rem 2rem 0 0;
+      }
+    }
+
+    &-img {
+      height: 70vh;
+      flex-basis: 40rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-nr {
+      font-size: 15rem;
+      position: absolute;
+      left: 50%;
+      bottom: 10%;
+      color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__fashion-1-text h1 {
+    color: var(--fashion-slide-span)
+  }
+  &__fashion-2-text h1 {
+    color: var(--hike-slide-span)
+  }
+  &__fashion-3-text h1 {
+    color: var(--mountain-slide-span)
+  }
+}

@@ -275,4 +275,74 @@ body.remove-scroll {
   font-size: 2rem;
   line-height: 3rem;
 }
+
+.main-container__fashion-1, .main-container__fashion-2, .main-container__fashion-3 {
+  min-height: 90vh;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main-container__fashion-1-text, .main-container__fashion-2-text, .main-container__fashion-3-text {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-preferred-size: 25rem;
+      flex-basis: 25rem;
+}
+
+.main-container__fashion-1-text h1, .main-container__fashion-2-text h1, .main-container__fashion-3-text h1 {
+  font-size: 8rem;
+  padding: 5rem 0rem;
+}
+
+.main-container__fashion-1-text p, .main-container__fashion-2-text p, .main-container__fashion-3-text p {
+  font-size: 2rem;
+  padding: 2rem 2rem 0 0;
+}
+
+.main-container__fashion-1-img, .main-container__fashion-2-img, .main-container__fashion-3-img {
+  height: 70vh;
+  -ms-flex-preferred-size: 40rem;
+      flex-basis: 40rem;
+}
+
+.main-container__fashion-1-img img, .main-container__fashion-2-img img, .main-container__fashion-3-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.main-container__fashion-1-nr, .main-container__fashion-2-nr, .main-container__fashion-3-nr {
+  font-size: 15rem;
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.main-container__fashion-1-text h1 {
+  color: var(--fashion-slide-span);
+}
+
+.main-container__fashion-2-text h1 {
+  color: var(--hike-slide-span);
+}
+
+.main-container__fashion-3-text h1 {
+  color: var(--mountain-slide-span);
+}
 /*# sourceMappingURL=style.css.map */
