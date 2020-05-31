@@ -1,5 +1,5 @@
 .nav-header {
-  font-size: 1rem;
+  font-size: 2rem;
   width: 80%;
   margin: 0 auto;
   min-height: 10vh;
@@ -9,10 +9,14 @@
   align-items: center;
   justify-content: space-between;
 
+  position: relative;
+  z-index: 2;
+
   &__logo, &__logo:link, &__logo:visited {
     color: var(--text-color-white);
     font-family: var(--font-family-second);
     text-decoration: none;
+    text-transform: uppercase;
   }
 
   &__burger-menu {

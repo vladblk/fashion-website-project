@@ -26,6 +26,10 @@ body {
   position: relative;
 }
 
+body.remove-scroll {
+  overflow: hidden;
+}
+
 .reveal-img, .reveal-text {
   position: absolute;
   top: -15%;
@@ -81,7 +85,7 @@ body {
 }
 
 .nav-header {
-  font-size: 1rem;
+  font-size: 2rem;
   width: 80%;
   margin: 0 auto;
   min-height: 10vh;
@@ -95,12 +99,15 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 
 .nav-header__logo, .nav-header__logo:link, .nav-header__logo:visited {
   color: var(--text-color-white);
   font-family: var(--font-family-second);
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-header__burger-menu {
