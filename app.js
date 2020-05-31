@@ -28,7 +28,7 @@ function animateSlides(){
     slideTimeline.fromTo(revealImg, {x: '0%'}, {x: '100%'});
     slideTimeline.fromTo(img, {scale: 2}, {scale: 1}, '-=1');
     slideTimeline.fromTo(revealText, {x: '0%'}, {x: '100%'}, '-=0.6');
-    slideTimeline.fromTo(navBar, {y: '-100%'}, {y: '0%'}, '-=0.6');
+    slideTimeline.fromTo(navBar, {y: '-100%'}, {y: '0%'}, '-=1');
 
     // create slide scene
     slideScene =  new ScrollMagic.Scene({
@@ -105,8 +105,6 @@ function hoverAnimation(e){
 window.addEventListener('mousemove', cursorAnimation);
 window.addEventListener('mouseover', hoverAnimation);
 
-animateSlides();
-
 
 // NAVIGATION TOGGLE
 const burgerMenu = document.querySelector('nav-header__burger-menu');
@@ -132,3 +130,63 @@ function toggleMenu(e){
 }
 
 window.addEventListener('click', toggleMenu);
+
+
+// BARBA PARGE TRANSITIONS
+barba.init({
+  views: [
+    {
+      namespace: 'home-page',
+
+      beforeEnter(){
+        animateSlides();
+      },
+
+      beforeLeave(){
+        controller.destroy(),
+        slideScene.destroy(),
+        pageScene.destroy()
+      }
+    },
+    {
+      namespace: 'fashion-page',
+      beforeEnter(){
+        // gsap.fromTo('.nav-header', 3.5, {y: '-100%'}, {y: '0%', ease: 'power2-inOut'});
+      }
+    }
+  ],
+
+  transitions: [
+    {
+      leave({current, next}){
+        let done = this.async();
+
+        const timeline = gsap.timeline({
+          defaults: {
+            ease: 'power2-inOut'
+          }
+        });
+
+        timeline.fromTo(current.container, 1, {opacity: 1}, {opacity: 0, onComplete: done});
+        timeline.fromTo('.loading-swipe', 0.5, {x: '-100%'}, {x: '0%', onComplete: done}, '-=0.5')
+      },
+
+      enter({current, next}){
+        let done = this.async();
+
+        // scroll to the top of the page you're going
+        window.scroll(0, 0);
+
+        const timeline = gsap.timeline({
+          defaults: {
+            ease: 'power2-inOut'
+          }
+        });
+
+        timeline.fromTo('.loading-swipe', 1, {x: '0%'}, {x: '100%', stagger: 0.5, onComplete: done})
+        timeline.fromTo(next.container, 0.5, {opacity: 0}, {opacity: 1, onComplete: done});
+        timeline.fromTo('.nav-header', 1.1, {y: '-100%'}, {y: '0%'});
+      }
+    }
+  ]
+})
