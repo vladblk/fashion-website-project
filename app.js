@@ -1,3 +1,5 @@
+// ANIMATE SLIDES
+
 let controller, slideScene, pageScene;
 
 function animateSlides(){
@@ -69,6 +71,8 @@ function animateSlides(){
   });
 };
 
+// ANIMATE CURSOR
+
 const cursor = document.querySelector('.cursor');
 const cursorText = cursor.querySelector('.cursor-text');
 
@@ -102,3 +106,29 @@ window.addEventListener('mousemove', cursorAnimation);
 window.addEventListener('mouseover', hoverAnimation);
 
 animateSlides();
+
+
+// NAVIGATION TOGGLE
+const burgerMenu = document.querySelector('nav-header__burger-menu');
+
+function toggleMenu(e){
+  if(e.target.classList.contains('nav-header__burger-menu') && !e.target.classList.contains('active')){
+    e.target.classList.add('active');
+    document.body.classList.add('remove-scroll');
+
+    gsap.to('.nav-header__burger-menu-line1', 0.5, {rotate: 45, y: 3, background: 'black'});
+    gsap.to('.nav-header__burger-menu-line2', 0.5, {rotate: -45, y: -3, background: 'black'});
+    gsap.to('.nav-container', 1, {clipPath: 'circle(2500px at 100% -10%)'});
+    gsap.to('.nav-header__logo', 0.5, {color: 'black'});
+  } else {
+    e.target.classList.remove('active');
+    document.body.classList.remove('remove-scroll');
+
+    gsap.to('.nav-header__burger-menu-line1', 0.5, {rotate: 0, y: 0, background: 'white'});
+    gsap.to('.nav-header__burger-menu-line2', 0.5, {rotate: 0, y: 0, background: 'white'});
+    gsap.to('.nav-container', 1, {clipPath: 'circle(50px at 100% -10%)'});
+    gsap.to('.nav-header__logo', 0.5, {color: 'white'});
+  }
+}
+
+window.addEventListener('click', toggleMenu);
