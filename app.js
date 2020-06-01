@@ -1,6 +1,6 @@
 // ANIMATE SLIDES
 
-let controller, slideScene, pageScene;
+let controller, slideScene, pageScene, detailScene, detailPageScene
 
 function animateSlides(){
   // init controller
@@ -42,7 +42,7 @@ function animateSlides(){
     }).setTween(slideTimeline)
       .addTo(controller);
 
-    // create page animation
+    // create page timeline
     const pageTimeline = gsap.timeline();
 
     // get the next slide
@@ -71,8 +71,74 @@ function animateSlides(){
   });
 };
 
-// ANIMATE CURSOR
+function detailPageAnimation(){
+  // init controller
+  controller = new ScrollMagic.Controller();
 
+  // get the detail slides
+  const detailSlides = document.querySelectorAll('.main-container__detail-slide');
+
+  // loop over all detail slides
+  detailSlides.forEach( (detailSlide, index, detailSlidesArr) => {
+    // detail slides selectors
+    const detailSlideTxt = detailSlide.querySelector('.text');
+    const detailSlideImg = detailSlide.querySelector('img');
+    const detailSlideSpan = detailSlide.querySelector('.nr');
+
+    // create timeline
+    detailTimeline = gsap.timeline({
+      defaults: {
+        duration: 1,
+        ease: 'power2-inOut'
+      }
+    });
+
+    detailTimeline.fromTo(detailSlideTxt, {x: '-50%'}, {x: '0%'});
+    detailTimeline.fromTo(detailSlideImg, {x: '50%'}, {x: '0%'}, '-=0.7');
+    detailTimeline.fromTo(detailSlideSpan, {x: '100%'}, {x: '0%'}, '-=0.5');
+
+    // create detail slide scene
+    detailSlideScene =  new ScrollMagic.Scene({
+      triggerElement: detailSlide,
+      triggerHook: 0.25,
+      reverse: false,
+    }).addIndicators({
+        colorStart: 'white',
+        colorTrigger: 'white',
+        name: 'detailSlide'
+    }).setTween(detailTimeline)
+      .addTo(controller);
+
+
+      // create detail page timeline
+      const detailPageTimeline = gsap.timeline();
+
+      // get the next detail slide
+      const nextDetailSlide = detailSlidesArr.index - 1 === index ? 'end' : detailSlidesArr[index + 1];
+
+      detailPageTimeline.fromTo(nextDetailSlide, {y: '0%'}, {y:'50%'});
+      detailPageTimeline.fromTo(detailSlide, {opacity: 1, scale: 1}, {opacity: 0, scale: 0});
+      detailPageTimeline.fromTo(nextDetailSlide, {y: '50%'}, {y: '0%'}, '-=0.5');
+
+
+      // create detail page scene
+      detailPageScene = new ScrollMagic.Scene({
+        triggerElement: detailSlide,
+        triggerHook: 0,
+        duration: '100%'
+      }).addIndicators({
+          colorStart: 'white',
+          colorTrigger: 'white',
+          name: 'detailPage',
+          indent: '100'
+    })
+      .setTween(detailPageTimeline)
+      .setPin(detailSlide, {pushFollowers: false})
+      .addTo(controller);
+  });
+};
+
+// ANIMATE CURSOR
 const cursor = document.querySelector('.cursor');
 const cursorText = cursor.querySelector('.cursor-text');
 
@@ -94,11 +160,19 @@ function hoverAnimation(e){
   if(item.classList.contains('btn')){
     cursor.classList.add('cursor-explore-active');
     cursorText.innerText = 'Tap';
-    gsap.to('.title-swipe', 1, {y: '0%'});
+
+    // remove gsap warning for not finding title-swipe in other pages
+    if(document.querySelector('.title-swipe')){
+      gsap.to('.title-swipe', 1, {y: '0%'});
+    }
   } else {
     cursor.classList.remove('cursor-explore-active');
     cursorText.innerText = '';
-    gsap.to('.title-swipe', 1, {y: '100%'});
+
+    // remove gsap warning for not finding title-swipe in other pages
+    if(document.querySelector('.title-swipe')){
+      gsap.to('.title-swipe', 1, {y: '100%'});  
+    }
   }
 }
 
@@ -132,7 +206,7 @@ function toggleMenu(e){
 window.addEventListener('click', toggleMenu);
 
 
-// BARBA PARGE TRANSITIONS
+// BARBA PAGE TRANSITIONS
 barba.init({
   views: [
     {
@@ -149,9 +223,16 @@ barba.init({
       }
     },
     {
-      namespace: 'fashion-page',
+      namespace: "fashion-page",
+
       beforeEnter(){
-        // gsap.fromTo('.nav-header', 3.5, {y: '-100%'}, {y: '0%', ease: 'power2-inOut'});
+        detailPageAnimation();
+      },
+
+      beforeLeave(){
+        controller.destroy(),
+        detailScene.destroy(),
+        detailPageScene.destroy()
       }
     }
   ],
@@ -168,7 +249,7 @@ barba.init({
         });
 
         timeline.fromTo(current.container, 1, {opacity: 1}, {opacity: 0, onComplete: done});
-        timeline.fromTo('.loading-swipe', 0.5, {x: '-100%'}, {x: '0%', onComplete: done}, '-=0.5')
+        timeline.fromTo('.loading-swipe', 0.5, {x: '-100%'}, {x: '0%', onComplete: done}, '-=0.5');
       },
 
       enter({current, next}){
